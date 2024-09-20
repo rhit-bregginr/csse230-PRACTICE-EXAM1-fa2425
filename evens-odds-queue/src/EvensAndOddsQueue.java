@@ -11,15 +11,13 @@ public class EvensAndOddsQueue {
     // but you may NOT use additional ArrayList fields. This may need to grow!
     private ArrayList<Integer> items;
     
-    private static final int DEFAULT_CAPACITY = 6;
     // Add any additional fields you need to solve the problem here.
+    
 
     /**
      * Creates an EvensAndOddsQueue object, initializing any fields as necessary.
-     * @param size The initial size of the queue.
-     * If the size provided is < 6, use the default capacity.
      */
-    public EvensAndOddsQueue(int size) {
+    public EvensAndOddsQueue() {
         // TODO: Implement me!
     }
 
