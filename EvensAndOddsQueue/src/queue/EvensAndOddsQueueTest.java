@@ -37,9 +37,9 @@ public class EvensAndOddsQueueTest {
 
         // dequeue some evens, and some odds.
         for (int i = 0; i < 15; i++) {
-            assertEquals((Integer) i, queue.dequeueEven());
-            assertEquals((Integer) (i + 1), queue.dequeueOdd());
-            assertEquals(100 - (2 * i), queue.size());
+            assertEquals((Integer) (i * 2), queue.dequeueEven());
+            assertEquals((Integer) ((i * 2) + 1), queue.dequeueOdd());
+            assertEquals(100 - (2 * (i + 1)), queue.size());
         }
     }
 
