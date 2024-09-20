@@ -42,7 +42,7 @@ Things get a little "hand-wavy" in this section, so pay close attention. There a
 - `enqueue()` must run in amortized `O(1)` time.
 - `peekEven()` and `peekOdd()` must run in `O(1)` time.
 - `dequeueEven()` and `dequeueOdd()` must run in `O(1)`** time.
-    - The code that YOU write must be `O(1)`. I am allowing you to use ArrayList's `delete()` method here, which is notably NOT `O(1)`. So you may NOT traverse the list, but it is OK if the things you call are not `O(1)` here.
+    - The code that YOU write must be `O(1)`. I am allowing you to use ArrayList's `delete()` method here, which is notably NOT `O(1)`. So you may NOT traverse the list, but it is OK to utilize `delete()`.
 
 ## Hints
 An `ArrayList` is not a golden ticket for a few of these methods (actually, most of them).
