@@ -25,7 +25,7 @@ public class EvensAndOddsQueue {
     /**
      * Enqueues the given element.
      * Restriction:
-     *     This must run in O(1) amortized time for both even AND odd numbers.
+     *     This must run in O(N) time for both even AND odd numbers.
      *     Think carefully about how you should store the items, as you need
      *     the dequeueEven() and dequeueOdd() methods to also be O(1)*.
      * @param element The element to add.

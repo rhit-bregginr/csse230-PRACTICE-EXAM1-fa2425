@@ -39,15 +39,16 @@ Things get a little "hand-wavy" in this section, so pay close attention. There a
 
 - `size()` must run in `O(1)` time.
 - `isEmpty()` must run in `O(1)` time.
-- `enqueue()` must run in amortized `O(1)` time.
+- `enqueue()` must run in `O(N)` time.
 - `peekEven()` and `peekOdd()` must run in `O(1)` time.
 - `dequeueEven()` and `dequeueOdd()` must run in `O(1)`** time.
-    - The code that YOU write must be `O(1)`. I am allowing you to use ArrayList's `delete()` method here, which is notably NOT `O(1)`. So you may NOT traverse the list, but it is OK to utilize `delete()`.
+    - The code that YOU write must be `O(1)`. I am allowing you to use ArrayList's `remove()` method here, which is notably NOT `O(1)`. So you may NOT traverse the list, but it is OK to utilize `remove()`.
+    - Hint: does utilizing `remove()` really help you?
 
 ## Hints
 An `ArrayList` is not a golden ticket for a few of these methods (actually, most of them).
 
-Consider, for example, when adding a mix of even and odd numbers. How can you easily distinguish where one group begins and the other ends? i.e. How can you store your data to force this to be `O(1)` for dequeues (excluding `ArrayList`'s `remove()` operation)?
+Consider, for example, when adding a mix of even and odd numbers. How can you easily distinguish where one group begins and the other ends? i.e. How can you store your data to force this to be `O(1)` for dequeues.
 
 So for an example of this:
 
@@ -72,8 +73,6 @@ evensAndOddsQueue.dequeueOdd();
 Because they will have to traverse almost the entire list. Also, what happens if there are no odds or evens at all?
 
 So it has to be that you have some way to cleverly store your data.
-
-This is also part of the reason why I suggest writing your own method to grow the `ArrayList`, as you can maintain the way you store the data much more easily than relying on throwing items on the end.
 
 
 
