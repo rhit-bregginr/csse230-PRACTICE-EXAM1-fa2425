@@ -8,4 +8,4 @@ The paper portion should look somewhat familiar if you've taken a look at the po
 
 The coding portion will contain a unique problem that challenges you to make a "new" data structure that is similar to a Queue, just with some features added and some removed.
 
-If you'd like to read more exact details, see the [Coding Portion Details document](/evens-odds-queue/src/codingPortionDetails.md)
+If you'd like to read more exact details, see the [Coding Portion Details document](/EvensAndOddsQueue/src/codingPortionDetails.md)
