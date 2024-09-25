@@ -13,13 +13,17 @@ public class EvensAndOddsQueue {
     private ArrayList<Integer> items;
     
     // Add any additional fields you need to solve the problem here.
-    
+    int oddStartIndex;
+    int evenStartIndex;
+    int evensSize = 0;
+    int oddsSize = 0;
 
     /**
      * Creates an EvensAndOddsQueue object, initializing any fields as necessary.
      */
     public EvensAndOddsQueue() {
-        // TODO: Implement me!
+        // DONE: Implement me!
+    	items = new ArrayList<Integer>();
     }
 
     /**
@@ -31,7 +35,24 @@ public class EvensAndOddsQueue {
      * @param element The element to add.
      */
     public void enqueue(int element) {
-        // TODO: Implement me!
+        // DONE: Implement me!
+        if (element % 2 == 0) { // even elements + expected location
+        	
+        	if (evenStartIndex == -1) { // edge case
+        		items.add(element);
+        		evenStartIndex = items.size() - 1;
+        		evensSize++;
+        		return;
+        	}
+        	
+        	items.add(evenStartIndex + evensSize, element);
+        	evensSize++;
+        	
+        } else { // odd elements
+        	items.add(oddStartIndex + oddsSize, element);
+        	oddsSize++;
+        	evenStartIndex++;
+        }
     }
 
     /**
@@ -39,16 +60,16 @@ public class EvensAndOddsQueue {
      * @return True if the queue is empty, false otherwise.
      */
     public boolean isEmpty() {
-        // TODO: Implement me!
-        return false;
+        // DONE: Implement me!
+    	return size() == 0;
     }
 
     /**
      * @return The number of items (odds + evens) in the queue.
      */
     public int size() {
-        // TODO: Implement me!
-        return 0;
+        // DONE: Implement me!
+    	return evensSize + oddsSize;
     }
 
     /**
@@ -62,8 +83,14 @@ public class EvensAndOddsQueue {
      * @throws NoSuchElementException If there are no even numbers in the queue.
      */
     public Integer dequeueEven() throws NoSuchElementException {
-        // TODO: Implement me!
-        throw new NoSuchElementException();
+        // DONE: Implement me!
+        if (evensSize == 0) { // No items to pull.
+        	throw new NoSuchElementException();
+        }
+        evensSize--; // change even #
+        Integer item = items.get(evenStartIndex);
+        evenStartIndex++;
+        return item;
     }
 
     /**
@@ -78,8 +105,15 @@ public class EvensAndOddsQueue {
      * @throws NoSuchElementException If there are no odd numbers in the queue.
      */
     public Integer dequeueOdd() throws NoSuchElementException {
-        // TODO: Implement me!
-        throw new NoSuchElementException();
+        // DONE: Implement me!
+    	if (oddsSize == 0) { // No items to pull.
+        	throw new NoSuchElementException();
+        }
+    	
+        oddsSize--;
+        Integer item = items.get(oddStartIndex);
+        oddStartIndex++;
+        return item;
     }
 
     /**
@@ -89,8 +123,11 @@ public class EvensAndOddsQueue {
      * @throws NoSuchElementException If there are no even numbers in the queue.
      */
     public Integer peekOdd() throws NoSuchElementException {
-        // TODO: Implement me!
-        throw new NoSuchElementException();
+        // DONE: Implement me!
+        if (oddsSize == 0) {
+        	throw new NoSuchElementException();
+        }
+        return items.get(oddStartIndex);
     }
 
     /**
@@ -100,7 +137,10 @@ public class EvensAndOddsQueue {
      * @throws NoSuchElementException If there are no odd numbers in the queue.
      */
     public Integer peekEven() throws NoSuchElementException {
-        // TODO: Implement me!
-        throw new NoSuchElementException();
+        // DONE: Implement me!
+    	if (evensSize == 0) {
+        	throw new NoSuchElementException();
+        }
+        return items.get(evenStartIndex);
     }
 }
